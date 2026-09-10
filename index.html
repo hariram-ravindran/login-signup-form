@@ -1,59 +1,174 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Signup Form</title>
+    <title>TEAM 2 - Create Account</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <form class="form" id="signupForm">
+    <div class="page">
 
-            <h2>Create Account</h2>
-            <p>Sign up to get started</p>
+        <!-- Interactive Artwork -->
+        <section class="art-section">
 
-            <div class="input-group">
-                <label for="name">Name</label>
-                <input 
-                    type="text" 
-                    id="name" 
-                    placeholder="Enter your name"
-                    required
-                >
+            <div class="grid"></div>
+
+            <div class="ring ring-one"></div>
+            <div class="ring ring-two"></div>
+
+            <div class="particle particle-one"></div>
+            <div class="particle particle-two"></div>
+
+            <div class="core" id="core">
+                <span>02</span>
             </div>
 
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    placeholder="Enter your email"
-                    required
-                >
+            <div class="art-content">
+                <div class="small-title">DIGITAL EXPERIENCE / TEAM 2</div>
+
+                <h1>
+                    Enter<br>
+                    your orbit.
+                </h1>
+
+                <p>
+                    A unique digital identity experience designed
+                    by Team 2.
+                </p>
             </div>
 
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    placeholder="Enter your password"
-                    required
-                >
+        </section>
+
+
+        <!-- Signup Form -->
+        <section class="form-section">
+
+            <div class="form-container">
+
+                <div class="brand">
+                    <div class="brand-logo">2</div>
+                    <span>TEAM 2</span>
+                </div>
+
+                <h2>Create your account</h2>
+
+                <p class="subtitle">
+                    Build your digital identity and join the experience.
+                </p>
+
+
+                <form id="signupForm">
+
+                    <!-- Name -->
+                    <div class="input-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a password"
+                                minlength="8"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+
+                        <!-- Password Strength -->
+                        <div class="strength">
+                            <div id="strengthBar"></div>
+                        </div>
+
+                        <p id="passwordHint">
+                            Use 8+ characters with numbers and symbols.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Submit -->
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="submitButton"
+                    >
+                        Create My Account →
+                    </button>
+
+
+                    <!-- Success Message -->
+                    <div
+                        class="status"
+                        id="status"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+
+                <p class="footer">
+                    Designed with creativity by
+                    <span>TEAM 2</span>
+                </p>
+
             </div>
 
-            <button type="submit">Sign Up</button>
+        </section>
 
-            <p class="login-text">
-                Already have an account?
-                <a href="#">Login</a>
-            </p>
-
-        </form>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
+```

@@ -1,90 +1,653 @@
+```css
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070812;
+    color: #ffffff;
+}
+
+.page {
     min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+}
+
+
+/* =========================
+   ARTWORK SECTION
+========================= */
+
+.art-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #252b58 0%,
+            #11152d 30%,
+            #080a15 70%
+        );
+
+    border-right: 1px solid #252a40;
+}
+
+
+/* Grid Background */
+
+.grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 25%,
+            black 75%,
+            transparent
+        );
+}
+
+
+/* Main Core */
+
+.core {
+    position: absolute;
+
+    left: 50%;
+    top: 45%;
+
+    width: 210px;
+    height: 210px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff 0%,
+            #a99aff 8%,
+            #6753e8 25%,
+            #191532 58%,
+            transparent 72%
+        );
+
+    box-shadow:
+        0 0 60px rgba(124, 92, 255, 0.45),
+        0 0 130px rgba(72, 230, 255, 0.15);
+
+    transition: transform 0.15s ease;
 }
 
-.container {
+.core span {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -3px;
+
+    color: rgba(255,255,255,0.85);
+
+    text-shadow:
+        0 0 20px rgba(255,255,255,0.5);
+}
+
+
+/* Rings */
+
+.ring {
+    position: absolute;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(72,230,255,0.45);
+
+    box-shadow:
+        0 0 25px rgba(72,230,255,0.12);
+}
+
+
+.ring-one {
+    width: 340px;
+    height: 130px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-18deg);
+
+    animation: rotateRing 8s linear infinite;
+}
+
+
+.ring-two {
+    width: 390px;
+    height: 155px;
+
+    border-color: rgba(160,130,255,0.35);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(35deg);
+
+    animation: rotateRingReverse 12s linear infinite;
+}
+
+
+/* Particles */
+
+.particle {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #48e6ff;
+
+    box-shadow:
+        0 0 15px #48e6ff;
+}
+
+
+.particle-one {
+    left: calc(50% + 160px);
+    top: calc(45% - 65px);
+
+    animation:
+        particleMove 8s linear infinite;
+}
+
+
+.particle-two {
+    left: calc(50% - 190px);
+    top: calc(45% + 40px);
+
+    background: #a78bfa;
+
+    box-shadow:
+        0 0 15px #a78bfa;
+
+    animation:
+        particleMove 12s linear infinite;
+}
+
+
+/* Artwork Text */
+
+.art-content {
+    position: absolute;
+
+    left: 45px;
+    right: 45px;
+    bottom: 45px;
+}
+
+
+.small-title {
+    color: #48e6ff;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.art-content h1 {
+    font-size: clamp(40px, 5vw, 65px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 18px;
+}
+
+
+.art-content p {
+    max-width: 430px;
+
+    color: #aeb4cf;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORM SECTION
+========================= */
+
+.form-section {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px;
+
+    background: #0c0f1c;
+}
+
+
+.form-container {
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
+    max-width: 410px;
 }
 
-.form {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+/* Brand */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 35px;
+
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.form h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #333;
+
+.brand-logo {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7357ff,
+            #48cfff
+        );
+
+    color: #080a13;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 25px rgba(124,92,255,0.35);
 }
 
-.form > p {
-    text-align: center;
-    color: #777;
-    margin-bottom: 25px;
+
+/* Heading */
+
+.form-container h2 {
+    font-size: 34px;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 9px;
 }
+
+
+.subtitle {
+    color: #9298b3;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 30px;
+}
+
+
+/* Input */
 
 .input-group {
     margin-bottom: 20px;
 }
 
+
 .input-group label {
     display: block;
-    margin-bottom: 7px;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
     font-weight: bold;
-    color: #333;
+
+    color: #dce0f1;
 }
+
 
 .input-group input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
+    height: 52px;
+
+    border: 1px solid #2a3048;
+
+    border-radius: 12px;
+
+    background: #111526;
+
+    color: #ffffff;
+
+    padding: 0 15px;
+
+    font-size: 16px;
+
     outline: none;
+
+    transition: 0.2s;
 }
+
+
+.input-group input::placeholder {
+    color: #626a86;
+}
+
 
 .input-group input:focus {
-    border-color: #667eea;
+    border-color: #7357ff;
+
+    box-shadow:
+        0 0 0 3px rgba(115,87,255,0.12);
 }
 
-button {
-    width: 100%;
-    padding: 13px;
+
+/* Password */
+
+.password-box {
+    position: relative;
+}
+
+
+.password-box input {
+    padding-right: 75px;
+}
+
+
+#togglePassword {
+    position: absolute;
+
+    right: 7px;
+    top: 7px;
+
+    height: 38px;
+
+    padding: 0 11px;
+
     border: none;
+
     border-radius: 8px;
-    background: #667eea;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+
+    background: #1c2134;
+
+    color: #aeb4cf;
+
     cursor: pointer;
 }
 
-button:hover {
-    background: #5568d9;
+
+/* Strength */
+
+.strength {
+    width: 100%;
+
+    height: 4px;
+
+    margin-top: 9px;
+
+    border-radius: 10px;
+
+    background: #20253a;
+
+    overflow: hidden;
 }
 
-.login-text {
-    margin-top: 20px;
-    font-size: 14px;
+
+#strengthBar {
+    width: 0;
+    height: 100%;
+
+    background: #48e6ff;
+
+    transition: 0.25s;
 }
 
-.login-text a {
-    color: #667eea;
-    text-decoration: none;
+
+#passwordHint {
+    min-height: 15px;
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    color: #707895;
+}
+
+
+/* Submit */
+
+.submit-button {
+    width: 100%;
+    height: 53px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #7357ff,
+            #48cfff
+        );
+
+    color: #080a13;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 35px rgba(92,76,232,0.3);
+}
+
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* Status */
+
+.status {
+    min-height: 22px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #62edb3;
+
+    font-size: 13px;
+}
+
+
+/* Footer */
+
+.footer {
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #707895;
+}
+
+
+.footer span {
+    color: #9d91ff;
+
     font-weight: bold;
 }
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes rotateRing {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(-18deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(342deg);
+    }
+}
+
+
+@keyframes rotateRingReverse {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(35deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(-325deg);
+    }
+}
+
+
+@keyframes particleMove {
+
+    from {
+        transform:
+            rotate(0deg)
+            translateX(170px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg)
+            translateX(170px)
+            rotate(-360deg);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 760px) {
+
+    .page {
+        grid-template-columns: 1fr;
+    }
+
+    .art-section {
+        min-height: 430px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid #252a40;
+    }
+
+    .form-section {
+        min-height: auto;
+
+        padding: 40px 25px;
+    }
+
+    .core {
+        width: 150px;
+        height: 150px;
+    }
+
+    .core span {
+        font-size: 30px;
+    }
+
+    .ring-one {
+        width: 250px;
+        height: 100px;
+    }
+
+    .ring-two {
+        width: 290px;
+        height: 115px;
+    }
+
+    .art-content {
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+    }
+
+    .art-content h1 {
+        font-size: 40px;
+
+        letter-spacing: -2px;
+    }
+
+}
+```
